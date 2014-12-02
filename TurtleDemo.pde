@@ -1,6 +1,4 @@
-
-
-//Show the demo.
+//Show the demo(s).
 //   Wiggly moving things + random wavy lines
 //   Also show that you can just issue commands in the setup to mess with turtles to start.
 
@@ -13,7 +11,8 @@
 //4. Students make a method in the Turtle class: polygon(numSides,sideLength)
 //5. After working with the Turtles for a while, talk about fractal tree. 
 //6. Students make a method in the Turtle class: tree(depth)
-//7. improve the tree command by adding parameters for branchLength, turnAngle, etc. 
+//7. Improve the tree command by adding parameters for branchLength, turnAngle, etc. 
+//8. Further improve it by adding branch decay and random angle changes.
 
 
 Turtle[] boxOfTurtles;
@@ -26,6 +25,7 @@ void setup() {
   for (int i = 0; i < boxOfTurtles.length; i++) {
     boxOfTurtles[i]= new Turtle(); //random color turtle at the center of the screen 
     boxOfTurtles[i].penDown();//make them draw
+    boxOfTurtles[i].setSize( 0.5+random(20)/10.0);
   }
   
   //issue single commands to a turtle to test code: (if you don't use a draw)

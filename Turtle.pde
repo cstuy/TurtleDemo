@@ -4,6 +4,7 @@ public class Turtle {
   private float ycor;
   private boolean penDown;
   private color penColor;
+  private float size;
 
 
 
@@ -16,6 +17,7 @@ public class Turtle {
     heading = random(360);
     xcor = txcor;
     ycor = tycor;
+    size = 1.0;
     penDown = true;
     penColor = color(55+random(200), 55+random(200), 55+random(200), 155);
   }
@@ -30,6 +32,13 @@ public class Turtle {
   public void setXY(float x, float y) {
     xcor=x;
     ycor=y;
+  }  
+
+  /**Change the turtle's size which is a scaler
+   of the turtle size. The default size is 1.0
+   */
+  public void setSize(float s) {
+    size = s;
   }  
 
   /**
@@ -121,16 +130,20 @@ public class Turtle {
   /**Display a turtle on the screen.
    */
   public void draw() {
-    stroke(0);
+    //stroke(0);
+    noStroke();
     fill(penColor);
-    ellipse(xcor+8*sin(radians(heading-45)), ycor+8*cos(radians(heading-45)), 5, 5);
-    ellipse(xcor+8*sin(radians(heading+45)), ycor+8*cos(radians(heading+45)), 5, 5);
-    ellipse(xcor+8*sin(radians(heading-135)), ycor+8*cos(radians(heading-135)), 5, 5);
-    ellipse(xcor+8*sin(radians(heading+135)), ycor+8*cos(radians(heading+135)), 5, 5);
-    ellipse(xcor, ycor, 15, 15);
+    ellipse(xcor+8*size*sin(radians(heading-45)), ycor+8*size*cos(radians(heading-45)), 5*size, 5*size);
+    ellipse(xcor+8*size*sin(radians(heading+45)), ycor+8*size*cos(radians(heading+45)), 5*size, 5*size);
+    ellipse(xcor+8*size*sin(radians(heading-135)), ycor+8*size*cos(radians(heading-135)), 5*size, 5*size);
+    ellipse(xcor+8*size*sin(radians(heading+135)), ycor+8*size*cos(radians(heading+135)), 5*size, 5*size);
+    ellipse(xcor+8*size*sin(radians(heading)), ycor+8*size*cos(radians(heading)), 8*size, 8*size);
+    fill(color(red(penColor),green(penColor),blue(penColor)));
+    ellipse(xcor, ycor, 15*size, 15*size);
     //stroke(255);
     //line(xcor, ycor, xcor+15*sin(radians(heading)), ycor+15*cos(radians(heading)));
-    ellipse(xcor+8*sin(radians(heading)), ycor+8*cos(radians(heading)), 8, 8);
+    
+    
   }
 }
 
